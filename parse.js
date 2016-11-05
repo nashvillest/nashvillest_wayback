@@ -92,7 +92,10 @@ fs.readFile(filename, 'utf8', function (err,data) {
     author = $('span.author .fn').html()
   }
   if (!author) {
-    author = $('#content > h4:nth-child(4)').html().match(/\<\!\-\- by (.*) \-\-\>/)[1]
+    author = $('#content > h4:nth-child(4)').html()
+    if (author) {
+      author = author.match(/\<\!\-\- by (.*) \-\-\>/)[1]
+    }
   }
   if (!author) {
     console.log('[ERROR] Missing a author in ' + filename)
