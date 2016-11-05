@@ -1,0 +1,25 @@
+{
+  "name": "nashvillest_wayback",
+  "version": "1.0.0",
+  "description": "Parse out Nashvillest content",
+  "main": "parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nashvillest/nashvillest_wayback.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nashvillest/nashvillest_wayback/issues"
+  },
+  "homepage": "https://github.com/nashvillest/nashvillest_wayback#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "moment": "^2.15.2",
+    "underscore": "^1.8.3",
+    "wxr": "^0.1.2"
+  }
+}
