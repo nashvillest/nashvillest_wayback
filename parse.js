@@ -36,9 +36,9 @@ fs.readFile(filename, 'utf8', function (err,data) {
   var post = {}
 
   // Get the post ID
-  var post_id = $('div[id*=post-]').attr('id')
+  var post_id = $('link[rel="shortlink"]').attr('href')
   if (!post_id) {
-    post_id = $('link[rel="shortlink"]').attr('href')
+    post_id = $('div[id^=post-]').attr('id')
   }
   if (!post_id) {
     post_id = $('input[name="comment_post_ID"]').val()
@@ -61,6 +61,9 @@ fs.readFile(filename, 'utf8', function (err,data) {
   }
   if (!permalink) {
     permalink = $('a[href*="nashvillest.disqus.com"]').attr('href')
+  }
+  if (!permalink) {
+    permalink = filename.replace('/index.html', '')
   }
   if (!permalink) {
     console.log('[ERROR] Empty permalink in ' + filename)
@@ -87,6 +90,13 @@ fs.readFile(filename, 'utf8', function (err,data) {
   var author = $('a[rel="author"]').html()
   if (!author) {
     author = $('span.author .fn').html()
+  }
+  if (!author) {
+    author = $('#content > h4:nth-child(4)').html().match(/\<\!\-\- by (.*) \-\-\>/)[1]
+  }
+  if (!author) {
+    console.log('[ERROR] Missing a author in ' + filename)
+    return
   }
   post.author = author
 
