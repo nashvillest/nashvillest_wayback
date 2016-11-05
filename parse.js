@@ -18,7 +18,7 @@ if (!filename) {
 
 // Create the export directory if it doesn't exist
 if (!fs.existsSync('./export')){
-    fs.mkdirSync('./export');
+    fs.mkdirSync('./export')
 }
 
 if (!filename.match(/\d+\/\d+\/\d+\//) || filename.match(/\d+\/\d+\/\d+\/index.html/) || filename.match(/feed\/index.html$/)) {
@@ -132,6 +132,7 @@ fs.readFile(filename, 'utf8', function (err,data) {
   post.categories = categories
 
   // Delete the social buttons
+  $('#greet_block').remove()
   $('.entry .tw_button').remove()
   $('.entry .wp_plus_one_button').remove()
   $('.sociable').remove()
@@ -145,14 +146,14 @@ fs.readFile(filename, 'utf8', function (err,data) {
     console.log('[ERROR] Empty content in ' + filename)
     return
   }
-  content = content.replace(/\r?\n|\r/g,"").trim()
+  content = content.trim()
   post.contentEncoded = content
 
   // Write out a JSON file
-  var file_contents = JSON.stringify(post)
-  var stream = fs.createWriteStream('./export/' + post.id + '-' + post.name + '.json');
+  var file_contents = JSON.stringify(post, null, ' ')
+  var stream = fs.createWriteStream('./export/' + post.id + '-' + post.name + '.json')
   stream.once('open', function(fd) {
-    stream.write(file_contents);
-    stream.end();
-  });
+    stream.write(file_contents)
+    stream.end()
+  })
 })
