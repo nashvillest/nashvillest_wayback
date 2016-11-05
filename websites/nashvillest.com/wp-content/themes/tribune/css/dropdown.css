@@ -1,0 +1,134 @@
+ 
+.dropdown ul{
+margin: 0;
+list-style-type: none;
+}
+
+/*Top level list items*/
+.dropdown ul li{
+position: relative;
+display: inline;
+}
+
+/*Top level menu link items style*/
+.dropdown ul li a{
+color:#292525;
+text-shadow:1px 1px 0 #fff;
+text-transform:uppercase;
+text-decoration: none;
+height: 32px;
+line-height: 32px;
+padding: 0 18px;
+border-right:1px dotted #6D7989;
+}
+
+#head-bar .dropdown ul li a {
+border-right:0;
+color: #333;
+text-transform:uppercase;
+}
+
+#head-bar .dropdown ul li a:hover, #head-bar .dropdown ul li a.active,  #head-bar .dropdown ul li:hover a {
+color:#fff;
+text-shadow:none;
+border-right:0;
+background:#191c1d;
+text-decoration:none;
+}
+
+#head-bar .dropdown ul li ul {
+ background:#191c1d;
+ }
+
+#head-bar .dropdown ul li ul li a {
+width: 130px; /*width of sub menus*/
+border-bottom: 1px dotted #ccc;
+}
+ 
+ 
+#head-bar .dropdown ul li ul li a:hover { /*sub menus hover style*/
+ background:#303537;
+ border-right:0;
+}
+
+#head-bar .dropdown ul li.current_page_item a, #head-bar .dropdown ul li.current-cat a {
+color:#fff;
+text-shadow:none;
+border-right:0;
+background:#191c1d;
+}
+
+* html .dropdown ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+ 
+
+.dropdown ul li a:hover, .dropdown ul li a.active,  .dropdown ul li:hover a {
+color:#fff;
+text-shadow:1px 1px 0 #194258;
+border-right:1px dotted #2a7094;
+background:#2a7094;
+text-decoration:none;
+}
+ 
+.dropdown ul li.current_page_item a, .dropdown ul li.current-cat a {
+color:#fff;
+text-shadow:1px 1px 0 #194258;
+border-right:1px dotted #2a7094;
+background:#2a7094;
+}
+
+ .dropdown ul li.current_page_item a:hover, .dropdown ul li.current-cat a:hover {
+color:#fff;
+}
+
+  
+/*1st sub level menu*/
+.dropdown ul li ul {
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+z-index:100;
+background:#2a7094;
+text-align:left;
+padding:0;
+}
+
+.dropdown ul li:hover ul li a, .dropdown ul li ul li a {
+color:#fff;
+text-shadow:1px 1px 0 #194258;
+border-right:0;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.dropdown ul li ul li {
+display: list-item;
+float: none;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.dropdown ul li ul li ul{
+top: 0;
+}
+
+/* Sub level menu links style */
+.dropdown ul li ul li a {
+width: 160px; /*width of sub menus*/
+margin: 0;
+border-top-width: 0;
+border-bottom: 1px dotted #194258;
+color:#fff;
+text-transform:none;
+border-right:0;
+display:block;
+}
+
+.dropdown ul li ul li:last-child a, .dropdown ul li ul li:last-child a:hover {
+border:none;
+}
+ 
+.dropdown ul li ul li a:hover { /*sub menus hover style*/
+ background:#3996c5;
+ border-right:0;
+}

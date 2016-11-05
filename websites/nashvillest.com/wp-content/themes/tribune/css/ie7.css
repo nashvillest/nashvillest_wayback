@@ -1,0 +1,24 @@
+	.downarrowclass {
+ 	padding:0;
+	}
+ 	
+	.rightarrowclass {
+ 	padding:0;
+ 	}
+ 	
+ 	
+		.homecat li .meta {
+ 
+		display:none;
+ 
+		}
+		
+		.homecat li .meta strong {
+		display:none;
+		}
+		
+		
+	.homecat .thumb  a img{ 
+     position:relative;
+     z-index:100;
+     }

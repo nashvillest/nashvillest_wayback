@@ -1,0 +1,38 @@
+ul#navigation li {
+	display: block;
+	float: left;
+}
+
+button.search-btn {
+	position: relative;
+	top: -2px;
+	right:  -12px;
+}
+
+div#text-3 input[type='text'] {
+	margin-top: 0px;
+}
+#navigation li {
+	position: relative;
+}
+#navigation li span {
+	display: none;
+	height: 36px;
+	position: absolute;
+	top: 0;
+	width: 9px;
+}
+
+#navigation li.current span,
+#navigation li.current-cat span {
+	display: block !important;
+}
+li span.left-corner {
+	background: transparent url('../images/nav-left-corner.png') scroll no-repeat top left;
+	left: 0;
+}
+
+li span.right-corner {
+	background: transparent url('../images/nav-right-corner.png') scroll no-repeat top left;
+	right: 0;
+}

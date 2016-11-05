@@ -1,0 +1,119 @@
+/******************************************  
+ CUSTOM STYLESHEET
+*******************************************/
+
+/*
+* You can place your custom CSS statements in this file, after this message.
+* It is better to write everything custom here
+* because this file won't be replaced during updates.
+* 
+* Simply copy an existing style from style.css to this file, 
+* and modify it to your liking.
+*/
+
+a {
+    color: #75862f;
+    text-decoration: none;
+}
+
+a:hover {
+	color:#75862f;
+	}
+
+
+h4.title, #topside h3, #bottomside h3 {
+    background:#2a7094;
+}
+
+
+#content #featured {
+border-bottom: 3px solid #333;
+}
+
+     #content #featured h2 {
+        font-size: 32px;
+      }
+     
+     #content #featured div.date {
+		color: #2a7094;
+ 		font-size: 14px;
+    }
+	#featured .entry {
+ 	font-size: 14px;
+ 	}
+
+
+
+    #departments .item .category a {
+    background:#2a7094;
+    }
+
+
+
+
+
+	#departments .item .category a:hover {
+	background:#75862f;
+	}
+	
+	#departments .item:hover .category a {
+	background:#75862f;
+	}
+
+#departments {
+    border-top: none;
+}
+
+
+#bottomside {
+    border-top:3px solid #333;
+}
+
+		#footer_search input#s:focus{
+		border: 1px solid #75862f;
+		}
+		#footer .copyright a { color:#75862f; }
+
+#sidebar .widget h3 { 
+color:#2a7094; 
+}
+
+
+#menu a {
+             font-family:"Helvetica Neue";
+           }
+
+
+.pagenav .floatleft a, .pagenav .floatright a {
+color:#75862f;
+}
+
+.pagenav .floatleft a:hover, .pagenav .floatright a:hover {
+color:#75862f;
+text-decoration:underline;
+font-family:Georgia,"Times New Roman",Times,serif;
+
+}
+
+
+.homecat h4 a {
+    background:#2a7094;
+
+    }
+
+
+.post .tag-links a:hover {
+  	background:#75862f;
+  	}
+
+.reply a:hover, .cancel-comment-reply a:hover { background: #75862f;}
+
+
+.home #content #featured .thumb {
+float: left;
+clear: both;
+width: 300px;
+margin: 5px 15px 10px 0;
+height: 180px;
+overflow: hidden;
+}
