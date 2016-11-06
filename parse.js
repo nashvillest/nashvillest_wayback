@@ -42,12 +42,13 @@ fs.readFile(filename, 'utf8', function (err,data) {
   if (!post_id) {
     console.log('[ERROR] Empty post ID in ' + filename)
     return
-  }
-  post_id = post_id.replace(/(.*)\D+/, '')
-  post_id = parseInt(post_id, 10)
-  if (!post_id) {
-    console.log('[ERROR] Unable to correctly parse post ID in ' + filename)
-    return
+  } else {
+    post_id = post_id.replace(/(.*)\D+/, '')
+    post_id = parseInt(post_id, 10)
+    if (!post_id) {
+      console.log('[ERROR] Unable to correctly parse post ID in ' + filename)
+      return
+    }
   }
   post.id = post_id
 
@@ -128,15 +129,18 @@ fs.readFile(filename, 'utf8', function (err,data) {
   })
   post.categories = categories
 
+  // Get the excerpt
+  var excerpt = $('meta[name="description"]').attr('content')
+  post.excerpt = excerpt;
+
   // Delete the social buttons
   $('#greet_block').remove()
   $('.entry .tw_button').remove()
   $('.entry .wp_plus_one_button').remove()
   $('.sociable').remove()
 
-  // Get the excerpt
-  var excerpt = $('meta[name="description"]').attr('content')
-  post.excerpt = excerpt;
+  // Remove onclick events
+  $('a').removeAttr('onclick')
 
   // The entry content
   var content = $('.entry').html()
