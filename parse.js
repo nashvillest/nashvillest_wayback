@@ -7,6 +7,7 @@ let cheerio = require('cheerio')
 let _ = require('underscore')
 let fs = require('fs')
 let moment = require('moment')
+let shelljs = require('shelljs')
 
 var filename = process.argv[2]
 
@@ -14,11 +15,6 @@ var filename = process.argv[2]
 if (!filename) {
   console.log('Missing argument for file to parse.')
   process.exit(1)
-}
-
-// Create the export directory if it doesn't exist
-if (!fs.existsSync('./export')){
-    fs.mkdirSync('./export')
 }
 
 if (!filename.match(/\d+\/\d+\/\d+\//) || filename.match(/\d+\/\d+\/\d+\/index.html/) || filename.match(/feed\/index.html$/)) {
@@ -48,7 +44,8 @@ fs.readFile(filename, 'utf8', function (err,data) {
     return
   }
   post_id = post_id.replace(/(.*)\D+/, '')
-  if (!parseInt(post_id, 10)) {
+  post_id = parseInt(post_id, 10)
+  if (!post_id) {
     console.log('[ERROR] Unable to correctly parse post ID in ' + filename)
     return
   }
@@ -110,7 +107,7 @@ fs.readFile(filename, 'utf8', function (err,data) {
   }
   if (!publish_date) {
     publish_date = filename.match(/\d+\/\d+\/\d+/)[0]
-    publish_date = publish_date.replace('/', '\\')
+    publish_date = publish_date.replace(/\//g, '-')
   }
   publish_date = publish_date.replace('| ', '')
   publish_date = Date.parse(publish_date)
@@ -137,7 +134,11 @@ fs.readFile(filename, 'utf8', function (err,data) {
   $('.entry .wp_plus_one_button').remove()
   $('.sociable').remove()
 
-  // The entry content (changes based on template)
+  // Get the excerpt
+  var excerpt = $('meta[name="description"]').attr('content')
+  post.excerpt = excerpt;
+
+  // The entry content
   var content = $('.entry').html()
   if (!content) {
     content = $('.entry-content').html()
@@ -151,7 +152,10 @@ fs.readFile(filename, 'utf8', function (err,data) {
 
   // Write out a JSON file
   var file_contents = JSON.stringify(post, null, ' ')
-  var stream = fs.createWriteStream('./export/' + post.id + '-' + post.name + '.json')
+  var date_path = moment(publish_date).format('YYYY/MM/DD')
+  shelljs.mkdir('-p', './export/' + date_path);
+
+  var stream = fs.createWriteStream('./export/' + date_path + '/' + post.name + '.json')
   stream.once('open', function(fd) {
     stream.write(file_contents)
     stream.end()
