@@ -34,3 +34,10 @@ find . -type f -name 'index.html' -exec node parse.js {} \;
 npm install
 node parse.js <path to article>
 ```
+
+## Generating the Import File
+
+```
+npm install
+node import > export/wxr-import.xml
+```
