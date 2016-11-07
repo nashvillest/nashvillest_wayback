@@ -8,6 +8,32 @@ let parameterize = require('parameterize')
 
 var importer = new Importer
 
+// Create the categories
+importer.addCategory({
+  slug : "culture-arts",
+  title: "Culture & Arts"
+})
+importer.addCategory({
+  slug : "featured",
+  title: "Featured"
+})
+importer.addCategory({
+  slug : "food-drink",
+  title: "Food & Drink"
+})
+importer.addCategory({
+  slug : "music-city",
+  title: "Music City"
+})
+importer.addCategory({
+  slug : "news",
+  title: "News"
+})
+importer.addCategory({
+  slug : "sports",
+  title: "Sports"
+})
+
 // Load all the exported files
 shelljs.find('./export').filter(function(filename) {
   if (filename.match(/\.json$/)) {
