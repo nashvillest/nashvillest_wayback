@@ -1,6 +1,6 @@
 ## Nashvillest Content from Wayback Machine
 
-So, funny story. A bunch of data may have been lost in a server crash.
+So, funny story. A bunch of data ~~may have been~~was definitely lost in a server crash.
 
 This is an attempt to piece the content back together. It uses a [Ruby gem](https://github.com/hartator/wayback-machine-downloader) to extract the site content from the [Internet Wayback Machine](https://archive.org).
 
