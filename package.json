@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/nashvillest/nashvillest_wayback#readme",
   "dependencies": {
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0",
     "moment": "^2.15.2",
     "parameterize": "1.0.0",
     "shelljs": "^0.8.3",
